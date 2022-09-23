@@ -4,7 +4,19 @@
   box-sizing: border-box;
 }
 
+ul {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
 .container {
-  /* justify-content: center; */
-  /* align-items: center; */
+  justify-content: center;
+  align-items: center;
+
+  text-align: -webkit-center;
+
+  margin-top: 5rem;
 }
