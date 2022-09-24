@@ -7,8 +7,6 @@
 }
 
 body {
-  /* height: 90vh; */
-
   background: linear-gradient(115deg, rgba(0,0,0,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
 }
 
@@ -30,7 +28,12 @@ li {
 }
 
 h1 {
-  font-family: "Pokemon", sans-serif;
+  font-family: "Pokedark", sans-serif;
+  font-size: 35px;
+
+  color: yellow;
+  -webkit-text-stroke: .5px blue;
+  margin-top: -3rem;
 }
 
 h2 {
@@ -44,9 +47,20 @@ p {
   color: white;
 }
 
+p::first-letter {
+  text-transform: uppercase;
+}
+
 @font-face {
   font-family: "Pokemon";
-  src: url("./fonts/Pokemon Hollow.ttf") format('truetype'), url("./fonts/Pokemon Solid.ttf") format('truetype');
+  src: url("./fonts/Pokemon Hollow.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pokedark";
+  src: url("./fonts/Pokemon Solid.ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
 }
