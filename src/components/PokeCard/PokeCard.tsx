@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { BsSearch } from 'react-icons/bs'
+import { BsSearch } from 'react-icons/bs';
+
 import pokebola from '../../assets/pokebola.png';
+import team from '../../assets/team.png';
 
 import './PokeCard.css'
 
@@ -9,7 +11,7 @@ export function PokeCard() {
 
   const [pokeName, setPokeName] = useState('')
   const [pokemon, setPokemon] = useState({
-    img: `${pokebola}`,
+    img: `${team}`,
     name: '???',
     id: 0,
     typeOne: '???',
