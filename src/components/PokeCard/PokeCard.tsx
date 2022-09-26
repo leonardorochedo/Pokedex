@@ -11,7 +11,12 @@ import "./PokeCard.css";
 
 export function PokeCard() {
   const [pokeName, setPokeName] = useState("");
-  const [alertStatus, setAlertStatus] = useState("none")
+
+  const [backPokeColor, setBackPokeColor] = useState("#343333");
+  const [typeTwoColor, setTypeTwoColor] = useState("#343333")
+
+  const [alertStatus, setAlertStatus] = useState("none");
+
   const [pokemon, setPokemon] = useState({
     img: `${team}`,
     name: "???",
@@ -29,6 +34,7 @@ export function PokeCard() {
   });
 
   function consultAPI() {
+
         fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName.toLowerCase()}`)
         .then((response) => response.json())
         .then((data) => {
@@ -47,7 +53,9 @@ export function PokeCard() {
                     sa: data.stats[3].base_stat,
                     sd: data.stats[4].base_stat,
                     speed: data.stats[5].base_stat,
-                  })
+                  }),
+                  selectType(data.types[0].type.name),
+                  selectTypeExtra(data.types[1].type.name)
             }
              else {
                 setPokemon({
@@ -64,7 +72,8 @@ export function PokeCard() {
                     sa: data.stats[3].base_stat,
                     sd: data.stats[4].base_stat,
                     speed: data.stats[5].base_stat,
-                  })
+                  }),
+                  selectType(data.types[0].type.name)
              }
         })
         .catch(err => {
@@ -72,31 +81,155 @@ export function PokeCard() {
             setTimeout(() => {setAlertStatus('none')}, 5000)
         });
 
-    /*  useEffect(() => {
-        if (pokemon.typeOne == "fire") {
-            console.log("fire")
+        function selectType(type: String) {
+
+            if (type == "normal") {
+                setBackPokeColor('#bcbbb5')
+            }
+
+            if (type == "grass") {
+                setBackPokeColor('#8dd851')
+            }
+
+            if (type == "fire") {
+                setBackPokeColor('#fa5643')
+            }
+
+            if (type == "water") {
+                setBackPokeColor('#56b0ff')
+            }
+
+            if (type == "fighting") {
+                setBackPokeColor('#a45647')
+            }
+
+            if (type == "flying") {
+                setBackPokeColor('#79a3ff')
+            }
+
+            if (type == "poison") {
+                setBackPokeColor('#a95da1')
+            }
+
+            if (type == "ground") {
+                setBackPokeColor('#f0cf58')
+            }
+
+            if (type == "rock") {
+                setBackPokeColor('#cebd72')
+            }
+
+            if (type == "bug") {
+                setBackPokeColor('#c2d21f')
+            }
+
+            if (type == "ghost") {
+                setBackPokeColor('#7975d6')
+            }
+
+            if (type == "electric") {
+                setBackPokeColor('#fde43f')
+            }
+            
+            if (type == "psychic") {
+                setBackPokeColor('#f763b2')
+            }
+
+            if (type == "ice") {
+                setBackPokeColor('#96f2ff')
+            }
+
+            if (type == "dragon") {
+                setBackPokeColor('#8674ff')
+            }
+
+            if (type == "dark") {
+                setBackPokeColor('#8c6a56')
+            }
+
+            if (type == "steel") {
+                setBackPokeColor('#c3c2da')
+            }
+
+            if (type == "fairy") {
+                setBackPokeColor('#f9aeff')
+            }
         }
 
-        if (pokemon.typeOne == "grass") {
-            console.log("grass")
-        }
+        function selectTypeExtra(type: String) {
 
-        if (pokemon.typeOne == "normal") {
-            console.log("normal")
-        }
+            if (type == "normal") {
+                setTypeTwoColor('#bcbbb5')
+            }
 
-        if (pokemon.typeOne == "eletric") {
-             console.log("eletric")
-        }
+            if (type == "grass") {
+                setTypeTwoColor('#8dd851')
+            }
 
-        if (pokemon.typeOne == "poison") {
-             console.log("poison")
-        }
+            if (type == "fire") {
+                setTypeTwoColor('#fa5643')
+            }
 
-        if (pokemon.typeOne == "psychic") {
-             console.log("psychic")
+            if (type == "water") {
+                setTypeTwoColor('#56b0ff')
+            }
+
+            if (type == "fighting") {
+                setTypeTwoColor('#a45647')
+            }
+
+            if (type == "flying") {
+                setTypeTwoColor('#79a3ff')
+            }
+
+            if (type == "poison") {
+                setTypeTwoColor('#a95da1')
+            }
+
+            if (type == "ground") {
+                setTypeTwoColor('#f0cf58')
+            }
+
+            if (type == "rock") {
+                setTypeTwoColor('#cebd72')
+            }
+
+            if (type == "bug") {
+                setTypeTwoColor('#c2d21f')
+            }
+
+            if (type == "ghost") {
+                setTypeTwoColor('#7975d6')
+            }
+
+            if (type == "electric") {
+                setTypeTwoColor('#fde43f')
+            }
+            
+            if (type == "psychic") {
+                setTypeTwoColor('#f763b2')
+            }
+
+            if (type == "ice") {
+                setTypeTwoColor('#96f2ff')
+            }
+
+            if (type == "dragon") {
+                setTypeTwoColor('#8674ff')
+            }
+
+            if (type == "dark") {
+                setTypeTwoColor('#8c6a56')
+            }
+
+            if (type == "steel") {
+                setTypeTwoColor('#c3c2da')
+            }
+
+            if (type == "fairy") {
+                setTypeTwoColor('#f9aeff')
+            }
         }
-      }, [pokemon]) */
   }
 
   return (
@@ -122,7 +255,7 @@ export function PokeCard() {
         <Alert id="alert" severity="error">Digite um valor válido</Alert>
      </div>
       <div className="container-info">
-        <div className="poke-img">
+        <div className="poke-img" style={{backgroundColor: backPokeColor}}>
           <img src={pokemon.img} alt="Pic a Pokemon" />
         </div>
         <div className="name-id">
@@ -131,8 +264,8 @@ export function PokeCard() {
           </p>
         </div>
         <div className="types">
-          <p>{pokemon.typeOne}</p>
-          {pokemon.typeTwo != '' ? <p>{pokemon.typeTwo}</p> : <p>???</p>}
+          <p style={{color: backPokeColor}}>{pokemon.typeOne}</p>
+          {pokemon.typeTwo != '' ? <p style={{color: typeTwoColor}}>{pokemon.typeTwo}</p> : <p>???</p>}
         </div>
         <div className="structure">
           <div className="structure-height">
