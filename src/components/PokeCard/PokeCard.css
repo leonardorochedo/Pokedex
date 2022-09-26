@@ -12,11 +12,12 @@
   align-items: center;
 
   box-shadow: 0px 0px 10px 0.1px black;
+
   margin-bottom: 2rem;
 }
 
-img#pokebola {
-  width: 2.5rem;
+img#pokedex {
+  width: 4rem;
 }
 
 .form {
@@ -77,6 +78,7 @@ img#pokebola {
   width: 100%;
 
   border-radius: 35px;
+  border-bottom: 2px solid white;
 }
 
 .poke-img img {
@@ -98,7 +100,6 @@ img#pokebola {
 .name-id p {
   font-family: "Pokedark", sans-serif;
   letter-spacing: 0.1rem;
-  color: #d6d6d6;
 }
 
 .types {
@@ -124,9 +125,9 @@ img#pokebola {
 
   flex-direction: row;
 
-  justify-content: space-between;
+  justify-content: space-around;
 
-  width: 8rem;
+  width: 10rem;
 
   margin-bottom: 1rem;
 }
@@ -146,6 +147,11 @@ img#pokebola {
 
 .stats {
   margin-bottom: 1rem;
+}
+
+.stats p {
+  font-family: "Pokedark", sans-serif;
+  letter-spacing: 0.1rem;
 }
 
 .stats ul {

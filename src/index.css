@@ -7,17 +7,22 @@
 }
 
 body {
-  background: linear-gradient(
+  /* background: linear-gradient(
       115deg,
       rgba(0, 0, 0, 1) 0%,
       rgba(253, 29, 29, 1) 50%,
       rgba(252, 176, 69, 1) 100%
     )
-    no-repeat;
+    no-repeat; */
 
-  height: 100vh;
+  background: url("/src/assets/wallpaper.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
 
-  overflow-y: hidden;
+  background-color: #0000006b;
+  background-blend-mode: overlay;
+
+  height: fit-content;
 
   user-select: none;
 }
@@ -55,7 +60,7 @@ h2 {
   font-size: 18px;
 
   color: aliceblue;
-  -webkit-text-stroke: 0.75px black;
+  -webkit-text-stroke: 0.5px black;
   letter-spacing: 0.2rem;
 
   margin-bottom: 1rem;
