@@ -1,11 +1,11 @@
 import { useState } from "react";
 
+// Visualize
 import Alert from '@mui/material/Alert';
-
 import { BsSearch } from "react-icons/bs";
 
 // Images
-import team from "../../assets/team.png";
+import whois from "../../assets/whois.png";
 
 import "./PokeCard.css";
 
@@ -18,7 +18,7 @@ export function PokeCard() {
   const [alertStatus, setAlertStatus] = useState("none");
 
   const [pokemon, setPokemon] = useState({
-    img: `${team}`,
+    img: `${whois}`,
     name: "???",
     id: 0,
     typeOne: "???",
@@ -259,9 +259,8 @@ export function PokeCard() {
           <img src={pokemon.img} alt="Pic a Pokemon" />
         </div>
         <div className="name-id">
-          <p>
-            {pokemon.name} #{pokemon.id}
-          </p>
+          <p>{pokemon.name}</p>
+          <p id="id-pokemon">#{pokemon.id}</p>
         </div>
         <div className="types">
           <p style={{color: backPokeColor}}>{pokemon.typeOne}</p>
@@ -278,7 +277,7 @@ export function PokeCard() {
           </div>
         </div>
         <div className="stats">
-            <p>Stats</p>
+            <p id="title-stats">Stats</p>
           <ul>
             <li>
               <p id="hp">HP</p> <p>{pokemon.hp} / 300</p>
