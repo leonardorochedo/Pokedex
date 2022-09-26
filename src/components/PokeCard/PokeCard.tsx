@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
+
+import Alert from '@mui/material/Alert';
 
 import { BsSearch } from "react-icons/bs";
 
@@ -9,7 +11,7 @@ import "./PokeCard.css";
 
 export function PokeCard() {
   const [pokeName, setPokeName] = useState("");
-  const [APIStatus, setAPIStatus] = useState({ code: 0 });
+  const [alertStatus, setAlertStatus] = useState("none")
   const [pokemon, setPokemon] = useState({
     img: `${team}`,
     name: "???",
@@ -45,10 +47,7 @@ export function PokeCard() {
                     sa: data.stats[3].base_stat,
                     sd: data.stats[4].base_stat,
                     speed: data.stats[5].base_stat,
-                  }),
-                  setAPIStatus({
-                    code: data.status,
-                  });
+                  })
             }
              else {
                 setPokemon({
@@ -65,11 +64,12 @@ export function PokeCard() {
                     sa: data.stats[3].base_stat,
                     sd: data.stats[4].base_stat,
                     speed: data.stats[5].base_stat,
-                  }),
-                  setAPIStatus({
-                    code: data.status,
-                  });;
+                  })
              }
+        })
+        .catch(err => {
+            setAlertStatus('')
+            setTimeout(() => {setAlertStatus('none')}, 5000)
         });
 
     /*  useEffect(() => {
@@ -101,8 +101,10 @@ export function PokeCard() {
 
   return (
     <>
-      <h1>Pokédex</h1>
-      <h2>Search by a Pokémon with name or ID!</h2>
+      <div className="header">
+        <h1>Pokédex</h1>
+        <h2>Search by a Pokémon with name or ID!</h2>
+      </div>
       <div className="form">
         <input
           autoFocus
@@ -116,6 +118,9 @@ export function PokeCard() {
           </span>
         </button>
       </div>
+      <div className="alert-error" style={{display: alertStatus}}>
+        <Alert id="alert" severity="error">Digite um valor válido</Alert>
+     </div>
       <div className="container-info">
         <div className="poke-img">
           <img src={pokemon.img} alt="Pic a Pokemon" />

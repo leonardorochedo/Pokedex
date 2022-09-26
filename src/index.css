@@ -7,14 +7,6 @@
 }
 
 body {
-  /* background: linear-gradient(
-      115deg,
-      rgba(0, 0, 0, 1) 0%,
-      rgba(253, 29, 29, 1) 50%,
-      rgba(252, 176, 69, 1) 100%
-    )
-    no-repeat; */
-
   background: url("/src/assets/wallpaper.jpg") no-repeat;
   background-position: center;
   background-size: cover;

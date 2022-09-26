@@ -16,8 +16,15 @@
   margin-bottom: 2rem;
 }
 
-img#pokedex {
-  width: 4rem;
+.alert-error {
+  margin: 1rem 0;
+
+  transition: 0.5s;
+}
+
+.alert-error #alert {
+  background-color: #ff1212f3;
+  justify-content: left;
 }
 
 .form {
