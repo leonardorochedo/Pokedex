@@ -270,6 +270,18 @@ export function PokeCard() {
     })
   }, [pokemon])
 
+  // Caso o usuário de enter no form
+  document.addEventListener('keypress', async function(e){
+    var value = 0
+    if(e.key == "Enter" && value == 0){
+      const buttonForm = document.getElementById('search')?.click()
+      console.log('Enter')
+      console.log(value)
+      value += 1
+      return;
+    }
+  }, false);
+
   return (
     <>
       <div className="header">
@@ -283,7 +295,7 @@ export function PokeCard() {
           placeholder="Name or ID"
           onChange={(e) => setPokeName(e.target.value.toLocaleLowerCase())}
         />
-        <button onClick={consultAPI}>
+        <button id="search" onClick={consultAPI}>
           <span>
             <BsSearch size={20} />
           </span>
