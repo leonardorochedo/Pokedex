@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 // Visualize
 import Alert from "@mui/material/Alert";
 import { BsSearch } from "react-icons/bs";
+import { GrFormNext } from "react-icons/gr";
+import { GrFormPrevious } from "react-icons/gr";
 
 // Images
 import whois from "../../assets/whois.png";
@@ -10,7 +12,7 @@ import whois from "../../assets/whois.png";
 import "./PokeCard.css";
 
 export function PokeCard() {
-  const [pokeName, setPokeName] = useState<string>("");
+  const [pokeName, setPokeName] = useState<string | number>("");
 
   const [backPokeColor, setBackPokeColor] = useState("#343333");
   const [typeTwoColor, setTypeTwoColor] = useState("#343333");
@@ -33,7 +35,7 @@ export function PokeCard() {
     speed: 0,
   });
 
-  const [pokemonID, setPokemonID] = useState(pokemon.id); //
+  const [pokemonID, setPokemonID] = useState(0);
 
   function consultAPI() {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
@@ -57,7 +59,7 @@ export function PokeCard() {
           }),
             selectType(data.types[0].type.name),
             selectTypeExtra(data.types[1].type.name),
-            setPokemonID(pokemon.id); //
+            setPokemonID(data.id);
         } else {
           setPokemon({
             img: data.sprites.front_default,
@@ -75,11 +77,10 @@ export function PokeCard() {
             speed: data.stats[5].base_stat,
           }),
             selectType(data.types[0].type.name),
-            setPokemonID(pokemon.id); //
+            setPokemonID(data.id);
         }
       })
       .catch((err) => {
-        console.log(err);
         setAlertStatus("");
         setTimeout(() => {
           setAlertStatus("none");
@@ -235,21 +236,39 @@ export function PokeCard() {
     }
   }
 
+  // Buttons Prev / Next
   function prevPokemon() {
     setPokemonID(pokemonID - 1);
-    useEffect(() => {
-      setPokeName(pokemonID.toString());
-      consultAPI();
-    }, [pokemonID]);
+    setPokeName(pokemonID - 1);
+    consultAPI();
   }
 
   function nextPokemon() {
     setPokemonID(pokemonID + 1);
-    useEffect(() => {
-      setPokeName(pokemonID.toString());
-      consultAPI();
-    }, [pokemonID]);
+    setPokeName(pokemonID + 1);
+    consultAPI();
   }
+
+  // Progress Bar
+  const [statsBar, setStatsBar] = useState({
+    hp: 0,
+    atk: 0,
+    def: 0,
+    sa: 0,
+    sd: 0,
+    speed: 0,
+  })
+
+  useEffect(() => {
+    setStatsBar({
+      hp: pokemon.hp * 100 / 300,
+      atk: pokemon.atk * 100 / 300,
+      def: pokemon.def * 100 / 300,
+      sa: pokemon.sa * 100 / 300,
+      sd: pokemon.sd * 100 / 300,
+      speed: pokemon.speed * 100 / 300,
+    })
+  }, [pokemon])
 
   return (
     <>
@@ -278,11 +297,11 @@ export function PokeCard() {
       <div className="container-info">
         <div className="poke-img" style={{ backgroundColor: backPokeColor }}>
           <button className="prev-button" onClick={prevPokemon}>
-            PREV
+            <GrFormPrevious size={25} />
           </button>
           <img src={pokemon.img} alt="Pic a Pokemon" />
           <button className="next-button" onClick={nextPokemon}>
-            NEXT
+            <GrFormNext size={25} />
           </button>
         </div>
         <div className="name-id">
@@ -308,25 +327,49 @@ export function PokeCard() {
           </div>
         </div>
         <div className="stats">
-          <p id="title-stats">Stats</p>
+          <p id="title-stats">Base Stats</p>
           <ul>
             <li>
-              <p id="hp">HP</p> <p>{pokemon.hp} / 300</p>
+              <p id="hp">HP</p>
+              <div className="bar-stats">
+                <div className="hp-bar" style={{ width: `${statsBar.hp}%` }}>.</div>
+                <p>{pokemon.hp} / 300</p>
+              </div>
             </li>
             <li>
-              <p id="atk">ATK</p> <p>{pokemon.atk} / 300</p>
+              <p id="atk">ATK</p>
+              <div className="bar-stats">
+                <div className="atk-bar" style={{ width: `${statsBar.atk}%` }}>.</div>
+                <p>{pokemon.atk} / 300</p>
+              </div>
             </li>
             <li>
-              <p id="def">DEF</p> <p>{pokemon.def} / 300</p>
+              <p id="def">DEF</p>
+              <div className="bar-stats">
+                <div className="def-bar" style={{ width: `${statsBar.def}%` }}>.</div>
+                <p>{pokemon.def} / 300</p>
+              </div>
             </li>
             <li>
-              <p id="sa">SA</p> <p>{pokemon.sa} / 300</p>
+              <p id="sa">SA</p>
+              <div className="bar-stats">
+                <div className="sa-bar" style={{ width: `${statsBar.sa}%` }}>.</div>
+                <p>{pokemon.sa} / 300</p>
+              </div>
             </li>
             <li>
-              <p id="sd">SD</p> <p>{pokemon.sd} / 300</p>
+              <p id="sd">SD</p>
+              <div className="bar-stats">
+                <div className="sd-bar" style={{ width: `${statsBar.sd}%` }}>.</div>
+                <p>{pokemon.sd} / 300</p>
+              </div>
             </li>
             <li>
-              <p id="speed">SPEED</p> <p>{pokemon.speed} / 300</p>
+              <p id="speed">SPEED</p>
+              <div className="bar-stats">
+                <div className="speed-bar" style={{ width: `${statsBar.speed}%` }}>.</div>
+                <p>{pokemon.speed} / 300</p>
+              </div>
             </li>
           </ul>
         </div>

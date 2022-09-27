@@ -16,6 +16,7 @@
   margin-bottom: 3rem;
 }
 
+/* ERROR MODAL */
 .alert-error {
   margin: 1rem 0;
 
@@ -27,6 +28,7 @@
   justify-content: left;
 }
 
+/* FORM INPUT */
 .form {
   margin-bottom: 2rem;
   display: flex;
@@ -44,7 +46,7 @@
 
 .form input {
   width: calc(70%);
-  padding: 0.5rem;
+  padding: 0.75rem;
   background: transparent;
 
   border: none;
@@ -65,6 +67,8 @@
 }
 
 .form button {
+  width: 3rem;
+
   border: none;
   border-radius: 10px;
 
@@ -74,11 +78,10 @@
 }
 
 .form button span svg {
-  stroke: black;
   fill: black;
-  color: black;
 }
 
+/* POKE IMG AND BUTTONS */
 .poke-img {
   width: 100%;
 
@@ -102,6 +105,12 @@
   border: none;
 }
 
+.poke-img button svg {
+  fill: white;
+  stroke: white;
+}
+
+/* NAME AND ID */
 .name-id {
   display: flex;
   justify-content: space-around;
@@ -128,6 +137,7 @@
   font-size: 12px;
 }
 
+/* TYPES */
 .types {
   width: 12rem;
 
@@ -146,6 +156,7 @@
   width: 5rem;
 }
 
+/* STRUCTURE */
 .structure {
   display: flex;
 
@@ -167,10 +178,9 @@
 .structure-height p#description,
 .structure-weight p#description {
   font-size: 12px;
-
-  /* margin-top: -.75rem; */
 }
 
+/* STATUS BAR */
 .stats {
   margin-bottom: 1rem;
 }
@@ -189,7 +199,7 @@
 
   justify-content: space-around;
 
-  width: 10rem;
+  width: 15rem;
 }
 
 .stats ul li {
@@ -200,32 +210,55 @@
   margin-bottom: 0.5rem;
 }
 
-.stats ul li p#hp {
-  font-family: "Pokedark", sans-serif;
-  color: #0beb0b;
+.bar-stats {
+  display: flex;
+
+  width: 10rem;
+
+  align-items: stretch;
+
+  background-color: #505050;
+
+  border: none;
+  border-radius: 50px;
 }
 
-.stats ul li p#atk {
-  font-family: "Pokedark", sans-serif;
-  color: red;
+.bar-stats div {
+  width: 100%;
+
+  opacity: 0.95;
+
+  border-bottom-left-radius: inherit;
+  border-top-left-radius: inherit;
+
+  color: transparent;
 }
 
-.stats ul li p#def {
-  font-family: "Pokedark", sans-serif;
-  color: blue;
+.bar-stats div.hp-bar {
+  background-color: #0beb0b;
 }
 
-.stats ul li p#sa {
-  font-family: "Pokedark", sans-serif;
-  color: white;
+.bar-stats div.atk-bar {
+  background-color: red;
 }
 
-.stats ul li p#sd {
-  font-family: "Pokedark", sans-serif;
-  color: aliceblue;
+.bar-stats div.def-bar {
+  background-color: blue;
 }
 
-.stats ul li p#speed {
-  font-family: "Pokedark", sans-serif;
-  color: #ada3a3;
+.bar-stats div.sa-bar {
+  background-color: #d5ee16;
+}
+
+.bar-stats div.sd-bar {
+  background-color: #2377c0;
+}
+
+.bar-stats div.speed-bar {
+  background-color: #ada3a3;
+}
+
+.bar-stats p {
+  position: absolute;
+  margin-left: calc(10%);
 }

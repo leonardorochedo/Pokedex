@@ -84,6 +84,7 @@ button:hover {
 button:target,
 button::before {
   border: none;
+  text-decoration: none;
 }
 
 @font-face {
