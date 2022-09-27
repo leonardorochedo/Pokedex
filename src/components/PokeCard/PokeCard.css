@@ -228,8 +228,10 @@
 
   opacity: 0.95;
 
-  border-bottom-left-radius: inherit;
-  border-top-left-radius: inherit;
+  /* border-bottom-left-radius: inherit; */
+  /* border-top-left-radius: inherit; */
+
+  border-radius: 50px;
 
   color: transparent;
 }
@@ -260,5 +262,31 @@
 
 .bar-stats p {
   position: absolute;
-  margin-left: calc(10%);
+  padding: 0 2rem;
+  font-size: 12px;
+}
+
+@media (min-width: 700px) {
+  .container-info {
+    width: 30vw;
+  }
+
+  /* FORM INPUT */
+  .form {
+    width: 30vw;
+  }
+
+  /* ERROR MODAL */
+  .alert-error #alert {
+    width: 30vw;
+  }
+
+  /* STATS */
+  .bar-stats {
+    width: 15rem;
+  }
+
+  .stats ul {
+    width: 20rem;
+  }
 }

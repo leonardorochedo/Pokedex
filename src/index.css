@@ -100,3 +100,23 @@ button::before {
   font-weight: normal;
   font-style: normal;
 }
+
+
+@media (min-width: 700px) {
+  .container {
+    justify-content: center;
+    align-items: center;
+  
+    text-align: -webkit-center;
+  
+    margin: 0rem;
+  }
+
+  h1 {
+    font-size: 45px;
+
+    letter-spacing: 0.3rem;
+  
+    margin: 1rem 0 0 0;
+  }
+}
