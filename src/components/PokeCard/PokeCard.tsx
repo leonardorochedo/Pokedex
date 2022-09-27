@@ -274,7 +274,7 @@ export function PokeCard() {
     <>
       <div className="header">
         <h1>Pokédex</h1>
-        <h2>Search by a Pokémon with name or ID!</h2>
+        <h2>Search for a Pokémon by name or ID!</h2>
       </div>
       <div className="form">
         <input
