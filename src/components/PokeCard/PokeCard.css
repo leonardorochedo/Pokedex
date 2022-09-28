@@ -231,6 +231,9 @@
   border-radius: 50px;
 
   color: transparent;
+
+  animation: progressBar 0.5s ease-in;
+  animation-iteration-count: infinite;
 }
 
 .bar-stats div.hp-bar {
@@ -258,8 +261,33 @@
 }
 
 .bar-stats p {
+  font-family: "Pokedark", sans-serif;
+  letter-spacing: 0.1rem;
+
   position: absolute;
-  padding: 0 2rem;
+  margin-left: calc(4rem);
+}
+
+@keyframes progressBar {
+  0% {
+    background: radial-gradient(#ffffff4a, #0beb0b);
+  }
+
+  25% {
+    background: radial-gradient(#ffffff4a 5%), #0beb0b;
+  }
+
+  50% {
+    background: radial-gradient(#ffffff4a 15%, #0beb0b);
+  }
+
+  75% {
+    background: radial-gradient(#ffffff4a 5%, #0beb0b);
+  }
+
+  100% {
+    background: radial-gradient(#ffffff4a, #0beb0b);
+  }
 }
 
 @media (min-width: 700px) {
