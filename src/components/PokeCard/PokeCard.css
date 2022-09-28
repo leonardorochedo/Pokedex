@@ -11,9 +11,16 @@
   text-align: center;
   align-items: center;
 
-  box-shadow: 0px 0px 10px 0.1px black;
+  box-shadow: 0px 0px 20px 0.1px black;
+
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
 
   margin-bottom: 3rem;
+}
+
+.tilt {
+  width: 80vw;
 }
 
 /* ERROR MODAL */
@@ -455,6 +462,10 @@
     width: 50vw;
   }
 
+  .tilt {
+    width: 50vw;
+  }
+
   /* FORM INPUT */
   .form {
     width: 50vw;
@@ -468,6 +479,10 @@
 
 @media (min-width: 700px) {
   .container-info {
+    width: 40vw;
+  }
+
+  .tilt {
     width: 40vw;
   }
 
@@ -504,6 +519,10 @@
 
 @media (min-width: 1100px) {
   .container-info {
+    width: 40vw;
+  }
+
+  .tilt {
     width: 40vw;
   }
 

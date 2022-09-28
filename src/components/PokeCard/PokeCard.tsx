@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import Tilt from 'react-parallax-tilt';
+
 // Visualize
 import Alert from "@mui/material/Alert";
 import { BsSearch } from "react-icons/bs";
@@ -7,7 +9,7 @@ import { GrFormNext } from "react-icons/gr";
 import { GrFormPrevious } from "react-icons/gr";
 
 // Images
-import whois from "../../assets/whois.png";
+import whois from "../../assets/pikachu.png";
 
 import "./PokeCard.css";
 
@@ -301,7 +303,9 @@ export function PokeCard() {
           Digite um valor válido
         </Alert>
       </div>
-      <div className="container-info">
+      <div className="tilt">
+      <Tilt>
+        <div className="container-info">
         <div className="poke-img" style={{ backgroundColor: backPokeColor }}>
           <button id="prev-button" className="prev-button" onClick={prevPokemon}>
             <GrFormPrevious size={25} />
@@ -380,6 +384,8 @@ export function PokeCard() {
             </li>
           </ul>
         </div>
+        </div>
+      </Tilt>
       </div>
     </>
   );
