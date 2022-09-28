@@ -226,13 +226,13 @@
 .bar-stats div {
   width: 100%;
 
-  opacity: 0.95;
+  opacity: 0.75;
 
   border-radius: 50px;
 
   color: transparent;
 
-  animation: progressBar 0.5s ease-in;
+  animation: progressBar .55s alternate;
   animation-iteration-count: infinite;
 }
 
@@ -262,6 +262,7 @@
 
 .bar-stats p {
   font-family: "Pokedark", sans-serif;
+  -webkit-text-stroke: 0.75px black;
   letter-spacing: 0.1rem;
 
   position: absolute;
@@ -270,48 +271,31 @@
 
 @keyframes progressBar {
   0% {
-    background: radial-gradient(#ffffff4a, #0beb0b);
+    background: linear-gradient(#0beb0b, #ffffffcc 0%, #0beb0b);
+  }
+
+  10% {
+    background: linear-gradient(#0beb0b, #ffffffcc 10%, #0beb0b);
   }
 
   25% {
-    background: radial-gradient(#ffffff4a 5%), #0beb0b;
+    background: linear-gradient(#0beb0b, #ffffffcc 25%, #0beb0b);
   }
 
   50% {
-    background: radial-gradient(#ffffff4a 15%, #0beb0b);
+    background: linear-gradient(#0beb0b, #ffffffe2 50%, #0beb0b);
   }
 
   75% {
-    background: radial-gradient(#ffffff4a 5%, #0beb0b);
+    background: linear-gradient(#0beb0b, #ffffffdd 75%, #0beb0b);
+  }
+
+  90% {
+    background: linear-gradient(#0beb0b, white 90%, #0beb0b);
   }
 
   100% {
-    background: radial-gradient(#ffffff4a, #0beb0b);
-  }
-}
-
-@media (min-width: 700px) {
-  .container-info {
-    width: 30vw;
-  }
-
-  /* FORM INPUT */
-  .form {
-    width: 30vw;
-  }
-
-  /* ERROR MODAL */
-  .alert-error #alert {
-    width: 30vw;
-  }
-
-  /* STATS */
-  .bar-stats {
-    width: 15rem;
-  }
-
-  .stats ul {
-    width: 20rem;
+    background: linear-gradient(#0beb0b, white 100%, #0beb0b);
   }
 }
 
@@ -328,5 +312,80 @@
   /* ERROR MODAL */
   .alert-error #alert {
     width: 50vw;
+  }
+}
+
+@media (min-width: 700px) {
+  .container-info {
+    width: 40vw;
+  }
+
+  /* FORM INPUT */
+  .form {
+    width: 40vw;
+  }
+
+  /* ERROR MODAL */
+  .alert-error #alert {
+    width: 40vw;
+  }
+
+  /* STATS */
+  .bar-stats {
+    width: 60%;
+  }
+
+  .stats ul {
+    width: 18rem;
+  }
+}
+
+@media (min-height: 700px) and (max-height: 770px) {
+  /* STATS */
+  .bar-stats {
+    width: 60%;
+  }
+
+  .stats ul {
+    width: 20rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .container-info {
+    width: 40vw;
+  }
+
+  /* FORM INPUT */
+  .form {
+    width: 40vw;
+  }
+
+  .form button {
+    width: 10vw;
+  
+    background: transparent;
+  
+    border: none;
+    border-radius: 40px;
+  
+    height: 100%;
+  }
+
+  /* ERROR MODAL */
+  .alert-error #alert {
+    width: 40vw;
+  }
+  
+  .bar-stats {
+    width: 65%;
+  }
+
+  .stats ul {
+    width: 30rem;
+  }
+
+  .bar-stats p {
+    margin-left: calc(7rem);
   }
 }
