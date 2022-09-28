@@ -304,7 +304,7 @@ export function PokeCard() {
         </Alert>
       </div>
       <div className="tilt">
-      <Tilt>
+      <Tilt scale={0.75} glareColor='#ffffff' glareMaxOpacity={0.5} glareBorderRadius='40px'>
         <div className="container-info">
         <div className="poke-img" style={{ backgroundColor: backPokeColor }}>
           <button id="prev-button" className="prev-button" onClick={prevPokemon}>
