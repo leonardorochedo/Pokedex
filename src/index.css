@@ -13,7 +13,6 @@ body {
   background-position: center;
   background-size: cover;
   background-position-y: top; /**/
-  background-attachment: fixed; /**/
 
   background-color: #0000006b;
   background-blend-mode: overlay;
@@ -116,8 +115,7 @@ button::before {
   }
 
   body {
-    /* background-size: calc(cover + 100rem); */
-
+    background-attachment: fixed; /**/
     height: calc(fit-content + 100rem);
   }
 

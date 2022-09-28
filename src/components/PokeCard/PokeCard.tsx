@@ -19,6 +19,7 @@ export function PokeCard() {
 
   const [alertStatus, setAlertStatus] = useState("none");
 
+  const [APIStatusCode, setAPIStatusCode] = useState(0)
   const [pokemon, setPokemon] = useState({
     img: `${whois}`,
     name: "???",
@@ -37,8 +38,9 @@ export function PokeCard() {
 
   const [pokemonID, setPokemonID] = useState(0);
 
-  function consultAPI() {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
+  async function consultAPI() {
+
+      await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.types[1]) {
@@ -80,12 +82,15 @@ export function PokeCard() {
             setPokemonID(data.id);
         }
       })
+    
       .catch((err) => {
         setAlertStatus("");
         setTimeout(() => {
           setAlertStatus("none");
         }, 5000);
-      });
+      })
+
+    
 
     function selectType(type: String) {
       if (type == "normal") {
@@ -271,16 +276,11 @@ export function PokeCard() {
   }, [pokemon])
 
   // Caso o usuário de enter no form
-  document.addEventListener('keypress', async function(e){
-    var value = 0
-    if(e.key == "Enter" && value == 0){
-      const buttonForm = document.getElementById('search')?.click()
-      console.log('Enter')
-      console.log(value)
-      value += 1
-      return;
-    }
-  }, false);
+  document.addEventListener('keypress', function(e){
+    if(e.key == "Enter"){
+      // const buttonForm = document.getElementById('search')?.click()
+      consultAPI()
+  }}, false);
 
   return (
     <>
@@ -288,14 +288,14 @@ export function PokeCard() {
         <h1>Pokédex</h1>
         <h2>Search for a Pokémon by name or ID!</h2>
       </div>
-      <div className="form">
+      <div className="form" onSubmit={consultAPI}>
         <input
           autoFocus
           type="text"
           placeholder="Name or ID"
-          onChange={(e) => setPokeName(e.target.value.toLocaleLowerCase())}
+          onChange={(e) => setInterval(() => {setPokeName(e.target.value.toLocaleLowerCase())} ,3000)}
         />
-        <button id="search" onClick={consultAPI}>
+        <button id="search" type="submit" onClick={consultAPI}>
           <span>
             <BsSearch size={20} />
           </span>
@@ -308,7 +308,7 @@ export function PokeCard() {
       </div>
       <div className="container-info">
         <div className="poke-img" style={{ backgroundColor: backPokeColor }}>
-          <button className="prev-button" onClick={prevPokemon}>
+          <button id="prev-button" className="prev-button" onClick={prevPokemon}>
             <GrFormPrevious size={25} />
           </button>
           <img src={pokemon.img} alt="Pic a Pokemon" />

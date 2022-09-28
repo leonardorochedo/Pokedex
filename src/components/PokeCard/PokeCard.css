@@ -226,38 +226,39 @@
 .bar-stats div {
   width: 100%;
 
-  opacity: 0.75;
-
   border-radius: 50px;
 
   color: transparent;
-
-  animation: progressBar .55s alternate;
-  animation-iteration-count: infinite;
 }
 
 .bar-stats div.hp-bar {
-  background-color: #0beb0b;
+  animation: progressBarHP .55s alternate;
+  animation-iteration-count: infinite;
 }
 
 .bar-stats div.atk-bar {
-  background-color: red;
+  animation: progressBarATK .55s alternate;
+  animation-iteration-count: infinite;
 }
 
 .bar-stats div.def-bar {
-  background-color: blue;
+  animation: progressBarDEF .55s alternate;
+  animation-iteration-count: infinite;
 }
 
 .bar-stats div.sa-bar {
-  background-color: #d5ee16;
+  animation: progressBarSA .55s alternate;
+  animation-iteration-count: infinite;
 }
 
 .bar-stats div.sd-bar {
-  background-color: #2377c0;
+  animation: progressBarSD .55s alternate;
+  animation-iteration-count: infinite;
 }
 
 .bar-stats div.speed-bar {
-  background-color: #ada3a3;
+  animation: progressBarSPEED .55s alternate;
+  animation-iteration-count: infinite;
 }
 
 .bar-stats p {
@@ -269,33 +270,183 @@
   margin-left: calc(4rem);
 }
 
-@keyframes progressBar {
+@keyframes progressBarHP {
   0% {
-    background: linear-gradient(#0beb0b, #ffffffcc 0%, #0beb0b);
+    background: linear-gradient(#0beb0b, #a1ee96 0%, #0beb0b);
   }
 
   10% {
-    background: linear-gradient(#0beb0b, #ffffffcc 10%, #0beb0b);
+    background: linear-gradient(#0beb0b, #a1ee96 10%, #0beb0b);
   }
 
   25% {
-    background: linear-gradient(#0beb0b, #ffffffcc 25%, #0beb0b);
+    background: linear-gradient(#0beb0b, #a1ee96 25%, #0beb0b);
   }
 
   50% {
-    background: linear-gradient(#0beb0b, #ffffffe2 50%, #0beb0b);
+    background: linear-gradient(#0beb0b, #a1ee96 50%, #0beb0b);
   }
 
   75% {
-    background: linear-gradient(#0beb0b, #ffffffdd 75%, #0beb0b);
+    background: linear-gradient(#0beb0b, #a1ee96 75%, #0beb0b);
   }
 
   90% {
-    background: linear-gradient(#0beb0b, white 90%, #0beb0b);
+    background: linear-gradient(#0beb0b, #a1ee96 90%, #0beb0b);
   }
 
   100% {
-    background: linear-gradient(#0beb0b, white 100%, #0beb0b);
+    background: linear-gradient(#0beb0b, #a1ee96 100%, #0beb0b);
+  }
+}
+
+@keyframes progressBarATK {
+  0% {
+    background: linear-gradient(red, #e47676 0%, red);
+  }
+
+  10% {
+    background: linear-gradient(red, #e47676 10%, red);
+  }
+
+  25% {
+    background: linear-gradient(red, #e47676 25%, red);
+  }
+
+  50% {
+    background: linear-gradient(red, #e47676 50%, red);
+  }
+
+  75% {
+    background: linear-gradient(red, #e47676 75%, red);
+  }
+
+  90% {
+    background: linear-gradient(red, #e47676 90%, red);
+  }
+
+  100% {
+    background: linear-gradient(red, #e47676 100%, red);
+  }
+}
+
+@keyframes progressBarDEF {
+  0% {
+    background: linear-gradient(blue, #8298f1 0%, blue);
+  }
+
+  10% {
+    background: linear-gradient(blue, #8298f1 10%, blue);
+  }
+
+  25% {
+    background: linear-gradient(blue, #8298f1 25%, blue);
+  }
+
+  50% {
+    background: linear-gradient(blue, #8298f1 50%, blue);
+  }
+
+  75% {
+    background: linear-gradient(blue, #8298f1 75%, blue);
+  }
+
+  90% {
+    background: linear-gradient(blue, #8298f1 90%, blue);
+  }
+
+  100% {
+    background: linear-gradient(blue, #8298f1 100%, blue);
+  }
+}
+
+@keyframes progressBarSA {
+  0% {
+    background: linear-gradient(#d5ee16, #e8f47f 0%, #d5ee16);
+  }
+
+  10% {
+    background: linear-gradient(#d5ee16, #e8f47f 10%, #d5ee16);
+  }
+
+  25% {
+    background: linear-gradient(#d5ee16, #e8f47f 25%, #d5ee16);
+  }
+
+  50% {
+    background: linear-gradient(#d5ee16, #e8f47f 50%, #d5ee16);
+  }
+
+  75% {
+    background: linear-gradient(#d5ee16, #e8f47f 75%, #d5ee16);
+  }
+
+  90% {
+    background: linear-gradient(#d5ee16, #e8f47f 90%, #d5ee16);
+  }
+
+  100% {
+    background: linear-gradient(#d5ee16, #e8f47f 100%, #d5ee16);
+  }
+}
+
+@keyframes progressBarSD {
+  0% {
+    background: linear-gradient(#2377c0, #92c2ec 0%, #2377c0);
+  }
+
+  10% {
+    background: linear-gradient(#2377c0, #92c2ec 10%, #2377c0);
+  }
+
+  25% {
+    background: linear-gradient(#2377c0, #92c2ec 25%, #2377c0);
+  }
+
+  50% {
+    background: linear-gradient(#2377c0, #92c2ec 50%, #2377c0);
+  }
+
+  75% {
+    background: linear-gradient(#2377c0, #92c2ec 75%, #2377c0);
+  }
+
+  90% {
+    background: linear-gradient(#2377c0, #92c2ec 90%, #2377c0);
+  }
+
+  100% {
+    background: linear-gradient(#2377c0, #92c2ec 100%, #2377c0);
+  }
+}
+
+@keyframes progressBarSPEED {
+  0% {
+    background: linear-gradient(#ada3a3, #d7d1d1 0%, #ada3a3);
+  }
+
+  10% {
+    background: linear-gradient(#ada3a3, #d7d1d1 10%, #ada3a3);
+  }
+
+  25% {
+    background: linear-gradient(#ada3a3, #d7d1d1 25%, #ada3a3);
+  }
+
+  50% {
+    background: linear-gradient(#ada3a3, #d7d1d1 50%, #ada3a3);
+  }
+
+  75% {
+    background: linear-gradient(#ada3a3, #d7d1d1 75%, #ada3a3);
+  }
+
+  90% {
+    background: linear-gradient(#ada3a3, #d7d1d1 90%, #ada3a3);
+  }
+
+  100% {
+    background: linear-gradient(#ada3a3, #d7d1d1 100%, #ada3a3);
   }
 }
 
