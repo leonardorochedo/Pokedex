@@ -5,13 +5,15 @@
 
   color: aliceblue;
 
-  transition: .3s;
+  transition: 0.3s;
 }
 
 body {
   background: url("/src/assets/wallpaper.jpg") no-repeat;
   background-position: center;
   background-size: cover;
+  background-position-y: top; /**/
+  background-attachment: fixed; /**/
 
   background-color: #0000006b;
   background-blend-mode: overlay;
@@ -103,22 +105,27 @@ button::before {
   font-style: normal;
 }
 
-
 @media (min-width: 700px) {
   .container {
     justify-content: center;
     align-items: center;
-  
+
     text-align: -webkit-center;
-  
+
     margin: 0rem;
+  }
+
+  body {
+    /* background-size: calc(cover + 100rem); */
+
+    height: calc(fit-content + 100rem);
   }
 
   h1 {
     font-size: 45px;
 
     letter-spacing: 0.3rem;
-  
+
     margin: 1rem 0 0 0;
   }
 }
