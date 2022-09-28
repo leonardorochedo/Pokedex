@@ -300,7 +300,7 @@ export function PokeCard() {
       </div>
       <div className="alert-error" style={{ display: alertStatus }}>
         <Alert id="alert" severity="error">
-          Digite um valor válido
+          ERROR - Invalid value!
         </Alert>
       </div>
       <div className="tilt">
