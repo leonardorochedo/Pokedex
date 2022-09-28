@@ -12,14 +12,8 @@ import whois from "../../assets/whois.png";
 import "./PokeCard.css";
 
 export function PokeCard() {
+
   const [pokeName, setPokeName] = useState<string | number>("");
-
-  const [backPokeColor, setBackPokeColor] = useState("#343333");
-  const [typeTwoColor, setTypeTwoColor] = useState("#343333");
-
-  const [alertStatus, setAlertStatus] = useState("none");
-
-  const [APIStatusCode, setAPIStatusCode] = useState(0)
   const [pokemon, setPokemon] = useState({
     img: `${whois}`,
     name: "???",
@@ -35,8 +29,12 @@ export function PokeCard() {
     sd: 0,
     speed: 0,
   });
-
   const [pokemonID, setPokemonID] = useState(0);
+
+  const [backPokeColor, setBackPokeColor] = useState("#343333");
+  const [typeTwoColor, setTypeTwoColor] = useState("#343333");
+
+  const [alertStatus, setAlertStatus] = useState("none");
 
   async function consultAPI() {
 
@@ -82,15 +80,12 @@ export function PokeCard() {
             setPokemonID(data.id);
         }
       })
-    
       .catch((err) => {
         setAlertStatus("");
         setTimeout(() => {
           setAlertStatus("none");
         }, 5000);
       })
-
-    
 
     function selectType(type: String) {
       if (type == "normal") {
@@ -276,11 +271,11 @@ export function PokeCard() {
   }, [pokemon])
 
   // Caso o usuário de enter no form
-  document.addEventListener('keypress', function(e){
-    if(e.key == "Enter"){
-      // const buttonForm = document.getElementById('search')?.click()
-      consultAPI()
-  }}, false);
+  // document.addEventListener('keypress', function(e){
+  //   if(e.key == "Enter"){
+  //     // const buttonForm = document.getElementById('search')?.click()
+  //     consultAPI()
+  // }}, false);
 
   return (
     <>
@@ -293,7 +288,7 @@ export function PokeCard() {
           autoFocus
           type="text"
           placeholder="Name or ID"
-          onChange={(e) => setInterval(() => {setPokeName(e.target.value.toLocaleLowerCase())} ,3000)}
+          onChange={(e) => setPokeName(e.target.value.toLocaleLowerCase())}
         />
         <button id="search" type="submit" onClick={consultAPI}>
           <span>
