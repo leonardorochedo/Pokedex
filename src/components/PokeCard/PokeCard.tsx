@@ -273,11 +273,11 @@ export function PokeCard() {
   }, [pokemon])
 
   // Caso o usuário de enter no form
-  // document.addEventListener('keypress', function(e){
-  //   if(e.key == "Enter"){
-  //     // const buttonForm = document.getElementById('search')?.click()
-  //     consultAPI()
-  // }}, false);
+  function keyPress(e:any) {
+    if(e.key == "Enter"){
+      consultAPI()
+    }
+  }
 
   return (
     <>
@@ -285,14 +285,15 @@ export function PokeCard() {
         <h1>Pokédex</h1>
         <h2>Search for a Pokémon by name or ID!</h2>
       </div>
-      <div className="form" onSubmit={consultAPI}>
+      <div className="form">
         <input
           autoFocus
           type="text"
           placeholder="Name or ID"
           onChange={(e) => setPokeName(e.target.value.toLocaleLowerCase())}
+          onKeyUp={(e) => keyPress(e)}
         />
-        <button id="search" type="submit" onClick={consultAPI}>
+        <button id="search" onClick={consultAPI}>
           <span>
             <BsSearch size={20} />
           </span>
